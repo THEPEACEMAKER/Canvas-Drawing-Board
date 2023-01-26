@@ -155,3 +155,21 @@ section{
   width: 100%;
   height: 100%;
 }
+
+.drawing-board div {
+  background-image: -webkit-radial-gradient(top, circle cover, #3c6eb4 , #294172 80%);
+  background-image: -moz-radial-gradient(top, circle cover, #3c6eb4 , #294172 80%);
+  background-image: -o-radial-gradient(top, circle cover, #3c6eb4 , #294172 80%);
+  background-image: radial-gradient(top, circle cover, #3c6eb4 , #294172 80%);
+}
+.drawing-board p {
+  text-align: center;
+  user-select: none;
+}
+
+.drawing-board hr {
+  color:black;
+  background-color: black;
+  width: 100%;
+  height:2px
+}
