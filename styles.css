@@ -173,3 +173,68 @@ section{
   width: 100%;
   height:2px
 }
+
+@media only screen and (max-width: 600px){
+  .container {
+      flex-direction: column;
+      height: 100vh;
+  }
+  .tools-board {
+    width: 100%;
+  }
+  #triangle span {
+    visibility: hidden;
+    position: relative;
+  }
+  #triangle span::after {
+    visibility: visible;
+    position: absolute;
+    top: 0;
+    left: 10px;
+    content: "Tri";
+  }
+  #rectangle span {
+    visibility: hidden;
+    position: relative;
+  }
+  #rectangle span::after {
+    visibility: visible;
+    position: absolute;
+    top: 0;
+    left: 10px;
+    content: " Rect";
+  }
+  ul.options {
+    display: flex;
+  }
+  ul.options .tool {
+    width: 20%;
+  }
+  .title {
+    display: none;
+  }
+  .tools-board .row {
+      margin-bottom: 5px;
+  }
+  .row .options {
+      margin: 5px 0 0 5px;
+  }
+  .tools-board .row.buttons {
+      margin-bottom: 5px;
+      display: flex;
+      gap: 10px;
+  }
+  .buttons button {
+    width: 50%;
+  }
+  .drawing-board p {
+    display: none;
+  }
+}
+
+
+@media only screen and (max-width: 450px){
+  .option :where(span, label) {
+      display: none;
+  }
+}
