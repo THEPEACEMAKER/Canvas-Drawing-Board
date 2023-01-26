@@ -92,6 +92,14 @@ clearCanvas.addEventListener("click", () => {
     setCanvasBackground();
 });
 
+saveImg.addEventListener("click", () => {
+    const link = document.createElement("a"); // creating <a> element
+    let imgDate = new Date().toISOString().replace(/\T.+/, '')
+    link.download = `${imgDate}.jpg`; // passing current date as link download value
+    link.href = canvas.toDataURL(); // passing canvasData as link href value
+    link.click(); // clicking link to download image
+});
+
 // The Canvas Event Listeners
 canvas.addEventListener("mousedown", startDraw);
 canvas.addEventListener("mousemove", drawing);
