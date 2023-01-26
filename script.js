@@ -12,8 +12,10 @@ ctx = canvas.getContext("2d");
 let prevMouseX, prevMouseY, snapshot,
 isDrawing = false,
 selectedTool = "brush",
-brushWidth = 5,
+brushWidth = 2,
 selectedColor = "#000";
+
+let spacePressed = false;
 
 // The Canvas
 
@@ -128,6 +130,18 @@ colorPicker.addEventListener("change", () => {
     colorPicker.parentElement.click();
 });
 
+function keyDownHandler(e) {
+    // space button
+    if (e.key === ' ') {
+        spacePressed = !spacePressed;
+        isDrawing = !isDrawing;
+        ctx.beginPath();
+        ctx.lineWidth = brushWidth;
+        ctx.strokeStyle = selectedColor;
+        snapshot = ctx.getImageData(0, 0, canvas.width, canvas.height);
+    }
+}
+
 clearCanvas.addEventListener("click", () => {
     ctx.clearRect(0, 0, canvas.width, canvas.height); // clearing whole canvas
     setCanvasBackground();
@@ -145,3 +159,6 @@ saveImg.addEventListener("click", () => {
 canvas.addEventListener("mousedown", startDraw);
 canvas.addEventListener("mousemove", drawing);
 canvas.addEventListener("mouseup", () => isDrawing = false);
+
+document.addEventListener("keydown", keyDownHandler);
+
